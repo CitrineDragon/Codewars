@@ -29,24 +29,24 @@
 // Note:
 // If you are given an array with multiple answers, return the lowest correct index.
 
-function findEvenIndex(arr) {
-  let previousArr = [];
-  let previousSum = 0;
-  let nextArr = [];
-  let nextSum = 0;
-  let result;
+// function findEvenIndex(arr) {
+//   let previousArr = [];
+//   let previousSum = 0;
+//   let nextArr = [];
+//   let nextSum = 0;
+//   let result;
 
-  arr.forEach((current, index) => {
-    previousArr = arr.slice(0, index);
-    nextArr = arr.slice(index + 1, arr.length);
-    previousSum = previousArr.reduce((total, num) => total + num, 0);
-    nextSum = nextArr.reduce((total, num) => total + num, 0);
-    if (previousSum === nextSum) {
-      result = index;
-    }
-  });
-  return result !== undefined ? result : -1;
-}
+//   arr.forEach((current, index) => {
+//     previousArr = arr.slice(0, index);
+//     nextArr = arr.slice(index + 1, arr.length);
+//     previousSum = previousArr.reduce((total, num) => total + num, 0);
+//     nextSum = nextArr.reduce((total, num) => total + num, 0);
+//     if (previousSum === nextSum) {
+//       result = index;
+//     }
+//   });
+//   return result !== undefined ? result : -1;
+// }
 
 function findEvenIndex(arr) {
   let previousArr = [];
