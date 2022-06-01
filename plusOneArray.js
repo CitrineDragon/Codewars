@@ -13,34 +13,40 @@
 
 function upArray(arr) {
   let invalid = arr.filter((current) => current < 0 || current > 9);
-  let last = arr[arr.length - 1];
 
-  console.log(arr);
+  // if (arr[arr.length - 1] === 9) {
+  //   arr[arr.length - 1] = 0;
+  //   if (arr[arr.length - 2] === 9) {
+  //     arr[arr.length - 2] = 0;
+  //     if (arr[arr.length - 3] === 9) {
+  //       arr[arr.length - 3] = 0;
+  //       if (arr[arr.length - 4] === undefined) {
+  //         arr.unshift(1);
+  //       } else {
+  //         arr[arr.length - 4] += 1;
+  //       }
+  //     } else {
+  //       arr[arr.length - 3] += 1;
+  //     }
+  //   } else {
+  //     arr[arr.length - 2] += 1;
+  //   }
+  // } else {
+  //   arr[arr.length - 1] += 1;
+  // }
 
-  if (arr.length === 0) {
-    return null;
-  }
-
-  if (arr[arr.length - 1] === 9) {
-    arr[arr.length - 1] = 0;
-    if (arr[arr.length - 2] === 9) {
-      arr[arr.length - 2] = 0;
-      if (arr[arr.length - 3] === 9) {
-        arr[arr.length - 3] = 0;
-        if (arr[arr.length - 4] === undefined) {
-          arr.unshift(1);
-        } else {
-          arr[arr.length - 4] += 1;
-        }
-      } else {
-        arr[arr.length - 3] += 1;
-      }
+  for (let i = arr.length - 1; i >= 0; i--) {
+    if (arr[i] !== 9) {
+      arr[i] += 1;
+      break;
     } else {
-      arr[arr.length - 2] += 1;
+      arr[i] = 0;
     }
-  } else {
-    arr[arr.length - 1] += 1;
+
+    if (i === 0) {
+      arr.unshift(1);
+    }
   }
 
-  return invalid.length > 0 ? null : arr;
+  return invalid.length > 0 || arr.length === 0 ? null : arr;
 }
