@@ -22,15 +22,3 @@ class Cube {
     this.side = Math.abs(n);
   }
 }
-
-function isValid(f) {
-  return !f.includes(7) && !f.includes(8)
-    ? false
-    : f.includes(1) && f.includes(2)
-    ? false
-    : f.includes(3) && f.includes(4)
-    ? false
-    : (f.includes(5) && !f.includes(6)) || (!f.includes(5) && f.includes(6))
-    ? false
-    : true;
-}
