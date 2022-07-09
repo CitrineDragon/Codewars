@@ -21,17 +21,30 @@
 // movie(100, 10, 0.95) should return 24
 //     (with card the total price is 235, with tickets 240)
 
+// function movie(card, ticket, perc) {
+//   let count = 0;
+//   let a = ticket;
+//   let b = card + ticket;
+//   let tPrice = ticket * perc;
+
+//   while (a <= Math.ceil(b)) {
+//     count++;
+//     a += ticket;
+//     b += tPrice;
+//     tPrice *= perc;
+//   }
+//   return count;
+// }
+
 function movie(card, ticket, perc) {
   let count = 0;
-  let a = ticket;
-  let b = card + ticket;
-  let tPrice = ticket * perc;
+  let sA = 0;
+  let sB = card;
 
-  while (a <= Math.ceil(b)) {
+  while (Math.ceil(sB) >= sA) {
     count++;
-    a += ticket;
-    b += tPrice;
-    tPrice *= perc;
+    sA += ticket;
+    sB += ticket * Math.pow(perc, count);
   }
   return count;
 }
