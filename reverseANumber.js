@@ -9,15 +9,19 @@
 // -456 -> -654
 // 1000 ->    1
 
+// function reverseNumber(n) {
+//   return String(n).includes('-')
+//     ? +(
+//         '-' +
+//         String(n)
+//           .split('')
+//           .filter((e) => e !== '-')
+//           .reverse()
+//           .join('')
+//       )
+//     : +String(n).split('').reverse().join('');
+// }
+
 function reverseNumber(n) {
-  return String(n).includes('-')
-    ? +(
-        '-' +
-        String(n)
-          .split('')
-          .filter((e) => e !== '-')
-          .reverse()
-          .join('')
-      )
-    : +String(n).split('').reverse().join('');
+  return Math.sign(n) * Math.abs(n).toString().split('').reverse().join('');
 }
