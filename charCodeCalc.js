@@ -16,14 +16,21 @@
 // -------------------------
 //                        6
 
+// function calc(x) {
+//   let total1 = x
+//     .split('')
+//     .map((e) => e.charCodeAt(0))
+//     .join('');
+//   let total2 = total1.replace(/7/g, 1);
+//   return (
+//     total1.split('').reduce((t, c) => t + +c, 0) -
+//     total2.split('').reduce((t, c) => t + +c, 0)
+//   );
+// }
+
 function calc(x) {
-  let total1 = x
-    .split('')
-    .map((e) => e.charCodeAt(0))
-    .join('');
+  let total1 = [...x].map((e) => e.charCodeAt(0)).join('');
   let total2 = total1.replace(/7/g, 1);
-  return (
-    total1.split('').reduce((t, c) => t + +c, 0) -
-    total2.split('').reduce((t, c) => t + +c, 0)
-  );
+  let sum = (n) => [...n].reduce((t, c) => t + +c, 0);
+  return sum(total1) - sum(total2);
 }
