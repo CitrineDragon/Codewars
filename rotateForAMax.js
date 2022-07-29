@@ -41,7 +41,7 @@ function maxRot(n) {
   let resArr = [n];
   for (let i = 0; i < arr.length; i++) {
     arr.push(arr.splice(i, 1).join(''));
-    resArr.push(arr.join(''));
+    resArr.push(+arr.join(''));
   }
-  return +resArr.sort((a, b) => b - a)[0];
+  return resArr.sort((a, b) => b - a)[0];
 }
