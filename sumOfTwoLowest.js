@@ -12,3 +12,11 @@ function sumTwoSmallestNumbers(numbers) {
     .slice(0, 2)
     .reduce((t, c) => t + c, 0);
 }
+
+const largerThan5 = (val) => {
+  if (val > 5) {
+    return true;
+  } else {
+    return false;
+  }
+};
