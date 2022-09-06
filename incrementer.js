@@ -8,10 +8,14 @@
 // return an empty array if your array is empty
 // arrays will only contain numbers so don't worry about checking that
 
-function incrementer(nums) {
-  if (nums.length === 0) {
-    return [];
-  }
-  let add = nums.map((el, i) => String(el + (i + 1)));
-  return add.map((el) => (el.length > 1 ? +el[1] : +el));
+// function incrementer(nums) {
+//   if (nums.length === 0) {
+//     return [];
+//   }
+//   let add = nums.map((el, i) => String(el + (i + 1)));
+//   return add.map((el) => (el.length > 1 ? +el[1] : +el));
+// }
+
+function incrementer(num) {
+  return num.map((a, i) => (a + i + 1) % 10);
 }
