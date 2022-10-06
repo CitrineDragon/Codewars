@@ -29,13 +29,21 @@
 // Note:
 // If you are given an array with multiple answers, return the lowest correct index.
 
+// function findEvenIndex(arr) {
+//   for (let i = 0; i < arr.length; i++) {
+//     let left = arr.slice(0, i).reduce((acc, c) => acc + c, 0);
+//     let right = arr.slice(i + 1).reduce((acc, c) => acc + c, 0);
+//     if (left === right) {
+//       return i;
+//     }
+//   }
+//   return -1;
+// }
+
 function findEvenIndex(arr) {
-  for (let i = 0; i < arr.length; i++) {
-    let left = arr.slice(0, i).reduce((acc, c) => acc + c, 0);
-    let right = arr.slice(i + 1).reduce((acc, c) => acc + c, 0);
-    if (left === right) {
-      return i;
-    }
-  }
-  return -1;
+  return arr.findIndex(
+    (_, i) =>
+      arr.slice(0, i).reduce((acc, c) => acc + c, 0) ===
+      arr.slice(i + 1).reduce((acc, c) => acc + c, 0)
+  );
 }
