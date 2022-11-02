@@ -32,10 +32,9 @@
 
 function convertFrac(lst) {
   let denoms = lst.map((el) => el[1]).sort((a, b) => b - a);
-  let lcd = 0;
   for (let i = 1; i < 10000; i++) {
     if (denoms.every((el) => (denoms[0] * i) % el === 0)) {
-      lcd = denoms[0] * i;
+      let lcd = denoms[0] * i;
       return lst.map((el) => `(${el[0] * (lcd / el[1])},${lcd})`).join('');
     }
   }
