@@ -110,26 +110,47 @@
 // Task
 // Complete function whacAMole that accepts a argument arr, return the maximum number of moles you can hit.
 
+// function whacAMole(arr) {
+//   let count = 0;
+//   let newArr = [].concat(...arr).sort((a, b) => a - b);
+//   newArr = newArr.filter((x) => x !== 0);
+
+//   while (newArr.length > 0) {
+//     let curLen = newArr.length;
+//     if (newArr[0] > 1) {
+//       newArr[0] = 1;
+//     }
+//     if (newArr[1] > 1) {
+//       newArr[1] = 1;
+//     }
+//     newArr = newArr.map((x) => x - 1);
+//     newArr = newArr.filter((x) => x !== 0);
+//     if (curLen > 2) {
+//       count += 2;
+//     } else {
+//       count += curLen;
+//     }
+//   }
+//   return count;
+// }
+
 function whacAMole(arr) {
   let count = 0;
-  let newArr = [].concat(...arr).sort((a, b) => a - b);
-  newArr = newArr.filter((x) => x !== 0);
+  // Creates a new array from the nested array and sorts by increasing value
+  let sortArr = [].concat(...arr).sort((a, b) => a - b);
 
-  while (newArr.length > 0) {
-    let curLen = newArr.length;
-    if (newArr[0] > 1) {
-      newArr[0] = 1;
+  while (sortArr.length > 0) {
+    // Removes any value of 0 in the array
+    sortArr = sortArr.filter((x) => x > 0);
+    // Two hits per loop, increase the count and remove the value from the array x 2
+    if (sortArr.length > 0) {
+      count++, sortArr.shift();
     }
-    if (newArr[1] > 1) {
-      newArr[1] = 1;
+    if (sortArr.length > 0) {
+      count++, sortArr.shift();
     }
-    newArr = newArr.map((x) => x - 1);
-    newArr = newArr.filter((x) => x !== 0);
-    if (curLen > 2) {
-      count += 2;
-    } else {
-      count += curLen;
-    }
+    // Decrement all values in the array by 1
+    sortArr = sortArr.map((x) => x - 1);
   }
   return count;
 }
