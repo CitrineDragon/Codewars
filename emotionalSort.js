@@ -62,3 +62,5 @@ function sortEmotions(arr, order) {
       : emotionalObj[b] - emotionalObj[a]
   );
 }
+
+numberToEnglish(80085);
