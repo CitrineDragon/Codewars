@@ -24,8 +24,8 @@ function firstNonRepeatingLetter(s) {
 //   const lowercase = s.toLowerCase();
 //   for (let i = 0; i < s.length; i++) {
 //     if (
-//       i === lowercase.lastIndexOf(lowercase[i]) &&
-//       i === lowercase.indexOf(lowercase[i])
+//      lowercase.lastIndexOf(lowercase[i]) ===
+//      lowercase.indexOf(lowercase[i])
 //     ) {
 //       return s[i];
 //     }
